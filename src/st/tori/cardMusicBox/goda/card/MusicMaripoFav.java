@@ -1,14 +1,15 @@
 package st.tori.cardMusicBox.goda.card;
 
-import st.tori.cardMusicBox.AbstractMusicCard;
+import st.tori.cardMusicBox.AbstractMusic;
+import st.tori.cardMusicBox.MusicCard;
 
-public class MusicCardMaripoFav extends AbstractMusicCard {
+public class MusicMaripoFav extends AbstractMusic {
 
 	@Override
 	public String getTitle() {	return "Summ, summ, summ, Bienchen summ herum";	}
 
 	@Override
-	public final double[][] getPositionArray() {	return POSITION_ARRAY;	}
+	public final double[][] getScalePositionArray() {	return POSITION_ARRAY;	}
 	private static final double[][] POSITION_ARRAY = new double[][] {
 		new double[]{		},
 		new double[]{	0, 1, 2, 3, 4, 13, 17, 20, 32, 33, 34, 35, 36, 42.5, 44, 45	},
