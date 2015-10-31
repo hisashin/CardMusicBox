@@ -1,7 +1,6 @@
-package st.tori.cardMusicBox.goda.card;
+package st.tori.cardMusicBox.goda.music;
 
 import st.tori.cardMusicBox.AbstractMusic;
-import st.tori.cardMusicBox.MusicCard;
 
 public class MusicMaripoFav extends AbstractMusic {
 
