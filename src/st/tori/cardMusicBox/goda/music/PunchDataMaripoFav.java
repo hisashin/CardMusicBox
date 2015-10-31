@@ -1,8 +1,8 @@
 package st.tori.cardMusicBox.goda.music;
 
-import st.tori.cardMusicBox.AbstractMusic;
+import st.tori.cardMusicBox.AbstractPunchData;
 
-public class MusicMaripoFav extends AbstractMusic {
+public class PunchDataMaripoFav extends AbstractPunchData {
 
 	@Override
 	public String getTitle() {	return "Summ, summ, summ, Bienchen summ herum";	}

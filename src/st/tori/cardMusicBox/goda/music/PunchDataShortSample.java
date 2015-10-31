@@ -1,8 +1,8 @@
 package st.tori.cardMusicBox.goda.music;
 
-import st.tori.cardMusicBox.AbstractMusic;
+import st.tori.cardMusicBox.AbstractPunchData;
 
-public class MusicShortSample extends AbstractMusic {
+public class PunchDataShortSample extends AbstractPunchData {
 
 	@Override
 	public String getTitle() {	return "Short Sample";	}

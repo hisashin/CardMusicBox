@@ -6,24 +6,24 @@ import java.io.IOException;
 import org.jfree.graphics2d.svg.SVGGraphics2D;
 import org.jfree.graphics2d.svg.SVGUtils;
 
-import st.tori.cardMusicBox.exception.NoScaleMusicException;
-import st.tori.cardMusicBox.goda.music.MusicMaripoFav;
-import st.tori.cardMusicBox.goda.music.MusicShortSample;
+import st.tori.cardMusicBox.exception.NoPunchDataException;
+import st.tori.cardMusicBox.goda.music.PunchDataMaripoFav;
+import st.tori.cardMusicBox.goda.music.PunchDataShortSample;
 
-public class MusicCard {
+public class PunchCard {
 
-	private static MusicCardLayout DEFAULT_LAYOUT = new MusicCardLayout(Unit.MM, 7.91, 2.99, 40, 6, 11, 6, 2.75, 2.75);
+	private static PunchCardLayout DEFAULT_LAYOUT = new PunchCardLayout(Unit.MM, 7.91, 2.99, 40, 6, 11, 6, 2.75, 2.75);
 	
-	protected AbstractMusic music;
-	protected MusicCardLayout layout;
+	protected AbstractPunchData music;
+	protected PunchCardLayout layout;
 	
-	public MusicCard(AbstractMusic music) throws NoScaleMusicException {
+	public PunchCard(AbstractPunchData music) throws NoPunchDataException {
 		init(music, DEFAULT_LAYOUT);
 	}
-	public MusicCard(AbstractMusic music, Unit unit, double xStep, double yStep, double xSpaceLeft, double ySpaceBottom, double xSpaceRight, double ySpaceTop, double xHoleDiameter, double yHoleDiameter) throws NoScaleMusicException {
-		init(music, new MusicCardLayout(unit, xStep, yStep, xSpaceLeft, ySpaceBottom, xSpaceRight, ySpaceTop, xHoleDiameter, yHoleDiameter));
+	public PunchCard(AbstractPunchData music, Unit unit, double xStep, double yStep, double xSpaceLeft, double ySpaceBottom, double xSpaceRight, double ySpaceTop, double xHoleDiameter, double yHoleDiameter) throws NoPunchDataException {
+		init(music, new PunchCardLayout(unit, xStep, yStep, xSpaceLeft, ySpaceBottom, xSpaceRight, ySpaceTop, xHoleDiameter, yHoleDiameter));
 	}
-	private void init(AbstractMusic music, MusicCardLayout layout) throws NoScaleMusicException {
+	private void init(AbstractPunchData music, PunchCardLayout layout) throws NoPunchDataException {
 		this.music = music;
 		this.layout = layout;
 		music.getMaxScalePosition();
@@ -32,10 +32,10 @@ public class MusicCard {
 	public String getTitle() {
 		return music.getTitle();
 	}
-	public AbstractMusic getMusic() {
+	public AbstractPunchData getPunchData() {
 		return music;
 	}
-	public MusicCardLayout getLayout() {
+	public PunchCardLayout getLayout() {
 		return layout;
 	}
 
@@ -43,7 +43,7 @@ public class MusicCard {
 		MM,
 		INCH,
 	}
-	public static class MusicCardLayout {
+	public static class PunchCardLayout {
 		
 		Unit unit;
 		double xStep;
@@ -55,7 +55,7 @@ public class MusicCard {
 		double xHoleDiameter;
 		double yHoleDiameter;
 		
-		public MusicCardLayout(Unit unit, double xStep, double yStep, double xSpaceLeft, double ySpaceBottom, double xSpaceRight, double ySpaceTop, double xHoleDiameter, double yHoleDiameter) {
+		public PunchCardLayout(Unit unit, double xStep, double yStep, double xSpaceLeft, double ySpaceBottom, double xSpaceRight, double ySpaceTop, double xHoleDiameter, double yHoleDiameter) {
 			this.unit = unit;
 			this.xStep = xStep;
 			this.yStep = yStep;
@@ -82,7 +82,7 @@ public class MusicCard {
 		
 		@Override
 		public String toString() {
-			return "MusicCardLayout[xStep="+getXStep()+",yStep()="+getYStep()+",xSpaceLeft()="+getXSpaceLeft()+",ySpaceBottom()="+getYSpaceBottom()+",xSpaceRight()="+getXSpaceRight()+",ySpaceTop()="+getYSpaceTop()+",xHoleDiameter()="+getXHoleDiameter()+",yHoleDiameter()="+getYHoleDiameter()+"]";
+			return "PunchCardLayout[xStep="+getXStep()+",yStep()="+getYStep()+",xSpaceLeft()="+getXSpaceLeft()+",ySpaceBottom()="+getYSpaceBottom()+",xSpaceRight()="+getXSpaceRight()+",ySpaceTop()="+getYSpaceTop()+",xHoleDiameter()="+getXHoleDiameter()+",yHoleDiameter()="+getYHoleDiameter()+"]";
 
 		}
 	}
@@ -90,7 +90,7 @@ public class MusicCard {
 	private double getWidth() {
 		try {
 			return (music.getMaxScalePosition() - music.getMinScalePosition()) * layout.xStep + layout.xSpaceLeft + layout.xSpaceRight;
-		} catch (NoScaleMusicException e) {
+		} catch (NoPunchDataException e) {
 			e.printStackTrace();
 			return 0;
 		}
@@ -101,14 +101,14 @@ public class MusicCard {
 	
 	
 	public static void main(String[] args) throws Exception {
-		System.out.println("MusicCardMaripoFav");
+		System.out.println("PunchCardMaripoFav");
 		{
-			MusicCard card = new MusicCard(new MusicMaripoFav(), Unit.MM, 7.91, 2.99, 40, 6, 11, 6, 2.75, 2.75);
-			card.writeToSVG(new File("/Users/shingo/github/CardMusicBox/svg/"+card.getMusic().getClass().getSimpleName()+".svg"));
+			PunchCard card = new PunchCard(new PunchDataMaripoFav(), Unit.MM, 7.91, 2.99, 40, 6, 11, 6, 2.75, 2.75);
+			card.writeToSVG(new File("/Users/shingo/github/cardMusicBox/svg/"+card.getPunchData().getClass().getSimpleName()+".svg"));
 		}
 		{
-			MusicCard card = new MusicCard(new MusicShortSample(), Unit.MM, 7.91, 2.99, 40, 6, 5, 6, 2.75, 2.3);
-			card.writeToSVG(new File("/Users/shingo/github/CardMusicBox/svg/"+card.getMusic().getClass().getSimpleName()+".svg"));
+			PunchCard card = new PunchCard(new PunchDataShortSample(), Unit.MM, 7.91, 2.99, 40, 6, 5, 6, 2.75, 2.3);
+			card.writeToSVG(new File("/Users/shingo/github/cardMusicBox/svg/"+card.getPunchData().getClass().getSimpleName()+".svg"));
 		}
 	}
 
@@ -119,7 +119,7 @@ public class MusicCard {
 		double minX;
 		try {
 			minX = music.getMinScalePosition();
-		} catch (NoScaleMusicException e) {
+		} catch (NoPunchDataException e) {
 			e.printStackTrace();
 			minX = 0;
 		}

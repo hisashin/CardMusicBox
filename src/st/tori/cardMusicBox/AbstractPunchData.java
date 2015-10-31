@@ -1,14 +1,14 @@
 package st.tori.cardMusicBox;
 
-import st.tori.cardMusicBox.exception.NoScaleMusicException;
+import st.tori.cardMusicBox.exception.NoPunchDataException;
 
-public abstract class AbstractMusic {
+public abstract class AbstractPunchData {
 
 	public abstract String getTitle();
 	
 	public abstract double[][] getScalePositionArray();
 	
-	public final double getMinScalePosition() throws NoScaleMusicException {
+	public final double getMinScalePosition() throws NoPunchDataException {
 		double min = Double.MAX_VALUE;
 		for(double[] array: getScalePositionArray()) {
 			if(array==null||array.length<=0)continue;
@@ -16,10 +16,10 @@ public abstract class AbstractMusic {
 				if(min>val)min = val;
 			}
 		}
-		if(min==Double.MAX_VALUE)throw new NoScaleMusicException(this);
+		if(min==Double.MAX_VALUE)throw new NoPunchDataException(this);
 		return min;
 	}
-	public final double getMaxScalePosition() throws NoScaleMusicException {
+	public final double getMaxScalePosition() throws NoPunchDataException {
 		double max = Double.MIN_VALUE;
 		for(double[] array: getScalePositionArray()) {
 			if(array==null||array.length<=0)continue;
@@ -27,7 +27,7 @@ public abstract class AbstractMusic {
 				if(max<val)max = val;
 			}
 		}
-		if(max==Double.MIN_VALUE)throw new NoScaleMusicException(this);
+		if(max==Double.MIN_VALUE)throw new NoPunchDataException(this);
 		return max;
 	}
 }
