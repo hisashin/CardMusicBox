@@ -7,6 +7,7 @@ import org.jfree.graphics2d.svg.SVGGraphics2D;
 import org.jfree.graphics2d.svg.SVGUtils;
 
 import st.tori.cardMusicBox.exception.NoScaleMusicException;
+import st.tori.cardMusicBox.goda.music.MusicMaripoFav;
 import st.tori.cardMusicBox.goda.music.MusicShortSample;
 
 public class MusicCard {
@@ -30,6 +31,9 @@ public class MusicCard {
 	
 	public String getTitle() {
 		return music.getTitle();
+	}
+	public AbstractMusic getMusic() {
+		return music;
 	}
 	public MusicCardLayout getLayout() {
 		return layout;
@@ -98,9 +102,14 @@ public class MusicCard {
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("MusicCardMaripoFav");
-		//MusicCard card = new MusicCard(new MusicMaripoFav(), Unit.MM, 7.91, 2.99, 40, 6, 11, 6, 2.75, 2.75);
-		MusicCard card = new MusicCard(new MusicShortSample(), Unit.MM, 7.91, 2.99, 40, 6, 5, 6, 2.75, 2.3);
-		card.writeToSVG(new File("/Users/shingo/github/CardMusicBox/svg/test.svg"));
+		{
+			MusicCard card = new MusicCard(new MusicMaripoFav(), Unit.MM, 7.91, 2.99, 40, 6, 11, 6, 2.75, 2.75);
+			card.writeToSVG(new File("/Users/shingo/github/CardMusicBox/svg/"+card.getMusic().getClass().getSimpleName()+".svg"));
+		}
+		{
+			MusicCard card = new MusicCard(new MusicShortSample(), Unit.MM, 7.91, 2.99, 40, 6, 5, 6, 2.75, 2.3);
+			card.writeToSVG(new File("/Users/shingo/github/CardMusicBox/svg/"+card.getMusic().getClass().getSimpleName()+".svg"));
+		}
 	}
 
 	public void writeToSVG(File file) throws IOException {
