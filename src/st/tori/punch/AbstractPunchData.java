@@ -1,6 +1,6 @@
-package st.tori.cardMusicBox;
+package st.tori.punch;
 
-import st.tori.cardMusicBox.exception.NoPunchDataException;
+import st.tori.punch.exception.NoPunchDataException;
 
 public abstract class AbstractPunchData {
 

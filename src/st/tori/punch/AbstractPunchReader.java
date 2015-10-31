@@ -1,8 +1,8 @@
-package st.tori.cardMusicBox;
+package st.tori.punch;
 
-import st.tori.cardMusicBox.exception.InconsistentPunchCardException;
+import st.tori.punch.exception.InconsistentPunchCardException;
 
-public abstract class AbstractBox {
+public abstract class AbstractPunchReader {
 
 	public abstract int getScaleSize();
 	

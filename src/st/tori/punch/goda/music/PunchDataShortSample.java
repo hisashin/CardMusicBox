@@ -1,6 +1,6 @@
-package st.tori.cardMusicBox.goda.music;
+package st.tori.punch.goda.music;
 
-import st.tori.cardMusicBox.AbstractPunchData;
+import st.tori.punch.AbstractPunchData;
 
 public class PunchDataShortSample extends AbstractPunchData {
 

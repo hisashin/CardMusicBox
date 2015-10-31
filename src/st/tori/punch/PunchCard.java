@@ -1,4 +1,4 @@
-package st.tori.cardMusicBox;
+package st.tori.punch;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,9 +6,9 @@ import java.io.IOException;
 import org.jfree.graphics2d.svg.SVGGraphics2D;
 import org.jfree.graphics2d.svg.SVGUtils;
 
-import st.tori.cardMusicBox.exception.NoPunchDataException;
-import st.tori.cardMusicBox.goda.music.PunchDataMaripoFav;
-import st.tori.cardMusicBox.goda.music.PunchDataShortSample;
+import st.tori.punch.exception.NoPunchDataException;
+import st.tori.punch.goda.music.PunchDataMaripoFav;
+import st.tori.punch.goda.music.PunchDataShortSample;
 
 public class PunchCard {
 
@@ -104,11 +104,11 @@ public class PunchCard {
 		System.out.println("PunchCardMaripoFav");
 		{
 			PunchCard card = new PunchCard(new PunchDataMaripoFav(), Unit.MM, 7.91, 2.99, 40, 6, 11, 6, 2.75, 2.75);
-			card.writeToSVG(new File("/Users/shingo/github/cardMusicBox/svg/"+card.getPunchData().getClass().getSimpleName()+".svg"));
+			card.writeToSVG(new File("/Users/shingo/github/punch/svg/"+card.getPunchData().getClass().getSimpleName()+".svg"));
 		}
 		{
 			PunchCard card = new PunchCard(new PunchDataShortSample(), Unit.MM, 7.91, 2.99, 40, 6, 5, 6, 2.75, 2.3);
-			card.writeToSVG(new File("/Users/shingo/github/cardMusicBox/svg/"+card.getPunchData().getClass().getSimpleName()+".svg"));
+			card.writeToSVG(new File("/Users/shingo/github/punch/svg/"+card.getPunchData().getClass().getSimpleName()+".svg"));
 		}
 	}
 

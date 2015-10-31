@@ -1,6 +1,6 @@
-package st.tori.cardMusicBox.exception;
+package st.tori.punch.exception;
 
-import st.tori.cardMusicBox.AbstractPunchData;
+import st.tori.punch.AbstractPunchData;
 
 @SuppressWarnings("serial")
 public class NoPunchDataException extends Exception {
