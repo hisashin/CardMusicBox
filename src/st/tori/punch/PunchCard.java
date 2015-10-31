@@ -7,8 +7,8 @@ import org.jfree.graphics2d.svg.SVGGraphics2D;
 import org.jfree.graphics2d.svg.SVGUtils;
 
 import st.tori.punch.exception.NoPunchDataException;
-import st.tori.punch.goda.music.PunchDataMaripoFav;
-import st.tori.punch.goda.music.PunchDataShortSample;
+import st.tori.punch.goda.data.PunchDataMaripoFav;
+import st.tori.punch.goda.data.PunchDataShortSample;
 
 public class PunchCard {
 

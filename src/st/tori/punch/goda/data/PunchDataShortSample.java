@@ -1,4 +1,4 @@
-package st.tori.punch.goda.music;
+package st.tori.punch.goda.data;
 
 import st.tori.punch.AbstractPunchData;
 
