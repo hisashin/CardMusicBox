@@ -1,4 +1,4 @@
-package st.tori.punch.goda.box;
+package st.tori.punch.goda.reader;
 
 import st.tori.punch.AbstractPunchReader;
 
